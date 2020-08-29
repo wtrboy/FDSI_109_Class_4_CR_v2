@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      Friends
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <!-- Register Friend-->
+  <ion-card>
+    <ion-card-content>
+      <h2 class="section-header">Register a New Friend</h2>
+      <ion-item>
+        <ion-label position="stacked">Friend name:</ion-label>
+        <ion-input [(ngModel)]="model.name" name="name"></ion-input>
+      </ion-item>
+
+      <ion-button (click)="onSave()" color="primary">
+        Save Friend
+      </ion-button>
+      <ion-list>
+        <ion-item *ngFor="let friend of myFriends">
+          <ion-icon name="person-circle-outline"></ion-icon>
+          <ion-label>{{friend.name}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<!-- Item with friend counter-->
+<ion-item>
+  <ion-label>My Friends <ion-badge slot="end">{{myFriends.length}}</ion-badge></ion-label>
+</ion-item>

@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      Message Feed
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+<!--
+  <ul>
+  <li *ngFor="let p of postToDisplay"> {{ p.message }}</li>
+</ul>
+-->
+
+<ion-card *ngFor="let p of postToDisplay">
+  <ion-item>
+    <ion-card-header>
+    <ion-card-title>{{p.message}}</ion-card-title>
+   <ion-card-subtitle><ion-img *ngIf="p.imageUrl" src="{{p.imageUrl}}"></ion-img></ion-card-subtitle>
+   <ion-card-subtitle class="date">Posted on {{p.timeStamp | date:'dd/MMM/yyyy hh:mm:ss'}}</ion-card-subtitle>
+    </ion-card-header>
+  </ion-item>
+
+  <ion-card-content>From: {{p.from}}</ion-card-content>
+</ion-card>
+
+

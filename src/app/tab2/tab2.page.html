@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      Post new Message
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="tab2" [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Post New Message</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item class="ion-no-padding">
+        <ion-label position="stacked">Your Message:</ion-label>
+        <ion-input [(ngModel)]="model.message" name="message"></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-no-padding">
+        <ion-label position="stacked">Image URL:</ion-label>
+        <ion-input [(ngModel)]="model.imageUrl" name="imageUrl"></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-no-padding">
+        <ion-label position="stacked">To:</ion-label>
+        <ion-select [(ngModel)]="model.to" name="to">
+          <ion-select-option value="Everyone">Everyone</ion-select-option>
+          <ion-select-option *ngFor="let friend of myFriends" value="{{friend.name}}">{{friend.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-button (click)="onPost()" color="primary">
+        Post
+        <ion-icon name="paper-plane-outline"></ion-icon>
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
